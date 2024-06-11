@@ -1,0 +1,91 @@
+{
+  "a1a38a66-214e-4897-a618-8333f218b588": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Usuários do Office 365",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "UsuáriosdoOffice365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "a1a38a66-214e-4897-a618-8333f218b588"
+  },
+  "af0fad91-672e-4d27-892e-4a93d317baec": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1686/1.0.1686.3706/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "af0fad91-672e-4d27-892e-4a93d317baec"
+  },
+  "fd4e581a-0b28-42d4-b215-1367441328c4": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel Online (Business)",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1680/1.0.1680.3652/excelonlinebusiness/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excelonlinebusiness",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "groups%252F8d3adab7-a186-4a10-a033-cdb47b7c8f80,b%2521KJpNlqZy4Eu6rWCna3YpyGph1G3dL4dIrAhFKXiXHooY-QhG439zSqmKADitspE8,01F72N62A3O4WIQLUYIBE3EJJMRV5WKLDY": {
+        "dataSources": {
+          "BaseEPI": {
+            "tableName": "{A298A726-1B29-4297-B094-72D0332B925A}"
+          },
+          "PedidosEpis": {
+            "tableName": "{31CE7105-FF50-4755-B530-473C598B0528}"
+          },
+          "Table1": {
+            "tableName": "{980C1D99-A7F5-4681-9778-89A8AB318C0C}"
+          }
+        }
+      },
+      "me,b%2521EpGvGwQ2zEaxXjKP6ddasNI1PM_kfy1Bp0HTGjS5AS-ytlF-H1SVRbJEvdnYBaWn,01GS5TCIARGX24HSM3VVHJUQJB3WIL5H7T": {
+        "dataSources": {
+          "BaseAta": {
+            "tableName": "{AFC2B3A7-BB86-493D-8882-2A8BCDF051B4}"
+          },
+          "Equipe": {
+            "tableName": "{12DBBD5A-9993-4238-BC2B-FBE7011D21CA}"
+          },
+          "ParticipantesAta": {
+            "tableName": "{BDCE6EA4-F45A-44F3-AC54-37C486457615}"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "BaseEPI",
+      "PedidosEpis",
+      "Table1",
+      "Equipe",
+      "BaseAta",
+      "ParticipantesAta"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "fd4e581a-0b28-42d4-b215-1367441328c4"
+  }
+}

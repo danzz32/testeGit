@@ -1,0 +1,84 @@
+Screen1_1 As screen:
+
+    Table2_1 As Tabela.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =765
+        Items: =BaseEPI
+        onCellValueChange: =false
+        onFilter: =false
+        onNavigate: =false
+        onRowSelect: =false
+        onSave: =false
+        OnSelect: =false
+        Width: =1066
+        X: =0
+        Y: =3
+        ZIndex: =1
+
+        CÓDIGO1 As PowerAppsOneGridTemplate_dataField.textualColumn:
+            FieldDisplayName: ="CÓDIGO"
+            FieldName: ="CÓDIGO"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =1
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        "'Data da chegada1' As PowerAppsOneGridTemplate_dataField.textualColumn":
+            FieldDisplayName: ="Data da chegada"
+            FieldName: ="Data da chegada"
+            FieldType: ="d"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =2
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        TAMANHO1 As PowerAppsOneGridTemplate_dataField.textualColumn:
+            FieldDisplayName: ="TAMANHO"
+            FieldName: ="TAMANHO"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =3
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        EPI2 As PowerAppsOneGridTemplate_dataField.textualColumn:
+            FieldDisplayName: ="EPI"
+            FieldName: ="EPI"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =4
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        FUNÇÃO1 As PowerAppsOneGridTemplate_dataField.textualColumn:
+            FieldDisplayName: ="FUNÇÃO"
+            FieldName: ="FUNÇÃO"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =5
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+    Icon1_1 As icon.Reload:
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(PedidosEpis)
+        X: =1302
+        Y: =704
+        ZIndex: =2
+

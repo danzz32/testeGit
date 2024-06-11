@@ -1,0 +1,99 @@
+Screen1 As screen:
+
+    Icon1 As icon.Reload:
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(BaseEPI)
+        X: =1302
+        Y: =704
+        ZIndex: =2
+
+    DataTable1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =768
+        Items: =BaseEPI
+        Width: =484
+        X: =0
+        Y: =0
+        ZIndex: =3
+
+        EPI_Coluna1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="EPI"
+            FieldName: ="EPI"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.EPI
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        FUNÇÃO_Coluna1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="FUNÇÃO"
+            FieldName: ="FUNÇÃO"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.FUNÇÃO
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        TAMANHO_Coluna1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="TAMANHO"
+            FieldName: ="TAMANHO"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.TAMANHO
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+    "DropdownCanvas2 As 'Lista Suspensa'.pcfdataset":
+        Appearance: ="FilledDarker"
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Items: |-
+            =If(
+                !IsBlank(
+                    Filter(
+                        BaseEPI,
+                        EPI = TextInputCanvas1.Value
+                    )
+                ),
+                Distinct(
+                    Filter(
+                        BaseEPI,
+                        EPI = TextInputCanvas1.Value
+                    ),
+                    TAMANHO
+                )
+            )
+        Width: =320
+        X: =695
+        Y: =72
+        ZIndex: =4
+
+    "TextInputCanvas1 As 'Entrada de texto'":
+        Appearance: ="FilledDarker"
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        Height: =32
+        Value: =DataTable1.Selected.EPI
+        Width: =320
+        X: =695
+        Y: =191
+        ZIndex: =5
+

@@ -1,0 +1,265 @@
+Screen2 As screen:
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =139
+        Items: |-
+            =Filter(
+                    Equipe,
+                    StartsWith(
+                        Nome,
+                        TextInput1.Text
+                    )
+                )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =90
+        Visible: |-
+            =If(
+                IsBlank(TextInput1.Text),
+                false,
+                true
+            )
+        Width: =602
+        X: =48
+        Y: =387
+        ZIndex: =1
+
+        Title3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Nome
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle2.Size * 1.8)) / 2
+            ZIndex: =1
+
+        Subtitle2 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Email
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title3.Width
+            X: =Title3.X
+            Y: =Title3.Y + Title3.Height
+            ZIndex: =2
+
+        Separator3 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =4
+
+        Rectangle3 As rectangle:
+            Height: =Parent.TemplateHeight - Separator3.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =5
+
+        Icon2 As icon.AddUser:
+            Height: =47
+            Icon: =Icon.AddUser
+            OnSelect: |-
+                =Set(
+                    item,
+                    {
+                        Nome: ThisItem.Nome,
+                        Email: ThisItem.Email,
+                        Funcao: ThisItem.'Função Manter'
+                    }
+                );
+                Collect(
+                    ParticipantesAta,
+                    {
+                        'ID ATA': "1",
+                        Nome: item.Nome,
+                        Email: item.Email,
+                        'Função Manter': item.Funcao
+                    }
+                )
+            Width: =38
+            X: =544
+            Y: =20
+            ZIndex: =6
+
+    "Gallery1_1 As gallery.'BrowseLayout_Vertical_TwoTextVariant_ver5.0'":
+        BorderThickness: =1
+        DelayItemLoading: =true
+        Height: =139
+        Items: =ParticipantesAta
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =90
+        Width: =602
+        X: =734
+        Y: =387
+        ZIndex: =1
+
+        Title4 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Nome
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 86
+            X: =16
+            Y: =(Parent.TemplateHeight - (Self.Size * 1.8 + Subtitle3.Size * 1.8)) / 2
+            ZIndex: =1
+
+        Subtitle3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.Email
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title4.Width
+            X: =Title4.X
+            Y: =Title4.Y + Title4.Height
+            ZIndex: =2
+
+        NextArrow4 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(215, 58, 60, 1)
+            Height: =50
+            Icon: =Icon.Trash
+            OnSelect: =Select(Parent)
+            Tooltip: ="Exibir detalhes do item"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =3
+
+        Separator4 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =4
+
+    TextInput1 As text:
+        Default: =
+        Height: =47
+        Width: =602
+        X: =48
+        Y: =327
+        ZIndex: =2
+
+    ButtonCanvas1 As Botão:
+        DisplayMode: =DisplayMode.Edit
+        Height: =27
+        OnSelect: |-
+            =If(
+                IsEmpty(BaseAta),
+                Collect(
+                    BaseAta,
+                    {
+                        ID: Text(1),
+                        Titulo: "AA",
+                        'Tipo da Reunião': "Sinergia",
+                        Criador: User().FullName,
+                        'Função Manter': "RODANTES",
+                        Ações: "Teste",
+                        Observações: "aa"
+                    }
+                ),
+                Collect(
+                    BaseAta,
+                    {
+                        ID: Text(
+                            Max(
+                                BaseAta,
+                                Value(ID) + 1
+                            )
+                        ),
+                        Titulo: "AA",
+                        Tipo: "Sinergia",
+                        'Função Manter': "RODANTES",
+                        Ações: "Teste",
+                        Observações: "aa"
+                    }
+                )
+            )
+        Width: =602
+        X: =48
+        Y: =270
+        ZIndex: =3
+
+    Table2 As Tabela.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =90
+        Items: |-
+            =Filter(
+                BaseAta,
+                ID = Text(Max(ID))
+            )
+        onCellValueChange: =false
+        onFilter: =false
+        onNavigate: =false
+        onRowSelect: =false
+        onSave: =false
+        OnSelect: =false
+        Width: =602
+        X: =734
+        Y: =256
+        ZIndex: =4
+
+        ID1 As PowerAppsOneGridTemplate_dataField.textualColumn:
+            FieldDisplayName: ="ID"
+            FieldName: ="ID"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =1
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =7
+
+        Titulo1 As PowerAppsOneGridTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Titulo"
+            FieldName: ="Titulo"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =2
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =8
+
+        "'Data da Reunião1' As PowerAppsOneGridTemplate_dataField.textualColumn":
+            FieldDisplayName: ="Data da Reunião"
+            FieldName: ="Data da Reunião"
+            FieldType: ="d"
+            FieldVariantName: ="textualColumn"
+            Height: =100
+            Order: =3
+            Width: =0
+            X: =0
+            Y: =0
+            ZIndex: =9
+
